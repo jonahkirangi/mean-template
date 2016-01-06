@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="MeanTemplate">
 <head>
+  <base href="/">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,8 +11,13 @@
 </head>
 <body>
 
-  <h1>Hello</h1>
+  <div ng-view></div>
 
+  <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/angular/angular.js"></script>
+  <script src="/bower_components/angular-route/angular-route.js"></script>
+
+  <script src="scripts/app.js"></script>
+  <script src="scripts/controllers/main.js"></script>
 </body>
 </html>

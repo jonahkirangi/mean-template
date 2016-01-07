@@ -1,23 +1,39 @@
 <!DOCTYPE html>
 <html ng-app="MeanTemplate">
-<head>
-  <base href="/">
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mean Template</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link href="styles/style.css" rel="stylesheet">
-</head>
-<body>
+  <head>
+    <base href="/">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mean Template</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="styles/style.css" rel="stylesheet">
+  </head>
+  <body>
 
-  <div ng-view></div>
+    <nav class="navbar navbar-default" role="navigation" bs-navbar>
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">Mean Template</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li data-match-route="/$"><a href="/">Home</a></li>
+        <li data-match-route="/about"><a href="/about">About</a></li>
+        <li data-match-route="/contact"><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
 
-  <script src="bower_components/jquery/dist/jquery.js"></script>
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="/bower_components/angular-route/angular-route.js"></script>
+    <div ng-view></div>
 
-  <script src="scripts/app.js"></script>
-  <script src="scripts/controllers/main.js"></script>
-</body>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-strap/dist/angular-strap.min.js"></script>
+    <script src="bower_components/angular-strap/dist/angular-strap.tpl.min.js"></script>
+    <script src="bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
+
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/about.js"></script>
+    <script src="scripts/controllers/contact.js"></script>
+  </body>
 </html>

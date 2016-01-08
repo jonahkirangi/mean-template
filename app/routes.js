@@ -1,3 +1,5 @@
+var User = require('../app/models/user');
+
 module.exports = function (app, passport) {
 
   app.post('/api/login', passport.authenticate('local'), function(req, res) {
@@ -12,7 +14,7 @@ module.exports = function (app, passport) {
     });
     user.save(function(err) {
       if (err) return next(err);
-      res.send(200);
+      res.sendStatus(200);
     });
   });
 
@@ -29,7 +31,7 @@ module.exports = function (app, passport) {
   // Console log a stack trace on error
   app.use(function(err, req, res, next) {
     console.error(err.stack);
-    res.send(500, { message: err.message });
+    res.status(500).send({ message: err.message });
   });
 
 };

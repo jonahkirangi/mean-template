@@ -1,4 +1,4 @@
-angular.module('MeanTemplate', ['ngRoute', 'mgcrea.ngStrap'])
+angular.module('MeanTemplate', ['ngRoute', 'ngCookies', 'mgcrea.ngStrap', 'ngMessages'])
   .config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
 
     $routeProvider
@@ -10,9 +10,17 @@ angular.module('MeanTemplate', ['ngRoute', 'mgcrea.ngStrap'])
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
-      .when('/contact', {
-        templateUrl: 'views/contact.html',
-        controller: 'ContactCtrl'
+      .when('/login', {
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl'
+      })
+      .when('/signup', {
+        templateUrl: 'views/signup.html',
+        controller: 'SignupCtrl'
+      })
+      .when('/add', {
+        templateUrl: 'views/add.html',
+        controller: 'AddCtrl'
       })
       .otherwise({
         redirectTo: '/'

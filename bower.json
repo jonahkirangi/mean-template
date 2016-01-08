@@ -19,6 +19,11 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.4.8"
+    "angular": "~1.4.8",
+    "bootstrap-sass": "~3.3.6",
+    "angular-route": "~1.4.8",
+    "angular-strap": "~2.3.6",
+    "angular-cookies": "~1.4.8",
+    "angular-messages": "~1.4.8"
   }
 }

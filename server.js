@@ -10,7 +10,8 @@ var passport = require('passport');
 var app = express();
 
 // DB Configuration
-mongoose.connect('mongodb://localhost/mean-template');
+var configDB = require('./config/database.js');
+mongoose.connect(configDB.url);
 
 // Passport Configuration
 require('./config/passport')(passport);

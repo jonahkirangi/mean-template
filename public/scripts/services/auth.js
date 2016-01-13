@@ -56,6 +56,7 @@ angular.module('MeanTemplate')
           return $http.get('/api/logout').success(function() {
             $rootScope.currentUser = null;
             $cookieStore.remove('user');
+            $location.path('/');
             $alert({
               content: 'You have been logged out.',
               placement: 'top-right',

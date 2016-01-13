@@ -1,6 +1,18 @@
 var User = require('../app/models/user');
+var Thing = require('../app/models/thing');
 
 module.exports = function (app, passport) {
+
+  app.post('/api/things', function(req, res, next) {
+    var thing = new Thing({
+      name: req.body.thingName,
+      description: req.body.thingDescription
+    });
+    thing.save(function(err) {
+      if (err) return next(err);
+      res.sendStatus(200);
+    });
+  });
 
   app.post('/api/login', passport.authenticate('local'), function(req, res) {
     res.cookie('user', JSON.stringify(req.user));

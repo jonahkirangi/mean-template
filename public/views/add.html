@@ -1,16 +1,26 @@
 <div class="container">
 
   <div class="panel panel-default">
-    <div class="panel-heading">Add TV Show</div>
+    <div class="panel-heading">Add Thing</div>
     <div class="panel-body">
-      <form class="form" method="post" ng-submit="addShow()" name="addForm">
-        <div class="form-group" ng-class="{ 'has-success' : addForm.showName.$valid && addForm.showName.$dirty, 'has-error' : addForm.showName.$invalid && addForm.showName.$dirty }">
-          <input class="form-control" type="text" name="showName" ng-model="showName" placeholder="Enter TV show name" required autofocus>
-          <div class="help-block text-danger" ng-if="addForm.showName.$dirty" ng-messages="addForm.showName.$error">
-            <div ng-message="required">TV show name is required.</div>
+      <form class="form" method="post" ng-submit="addThing()" name="addForm">
+
+        <div class="form-group" ng-class="{ 'has-success' : addForm.thingName.$valid && addForm.thingName.$dirty, 'has-error' : addForm.thingName.$invalid && addForm.thingName.$dirty }">
+          <input class="form-control" type="text" name="thingName" ng-model="thingName" placeholder="Add name" required autofocus>
+          <div class="help-block text-danger" ng-if="addForm.thingName.$dirty" ng-messages="addForm.thingName.$error">
+            <div ng-message="required">Name is required.</div>
           </div>
         </div>
+
+        <div class="form-group" ng-class="{ 'has-success' : addForm.thingDescription.$valid && addForm.thingDescription.$dirty, 'has-error' : addForm.thingDescription.$invalid && addForm.thingDescription.$dirty }">
+          <input class="form-control" type="text" name="thingDescription" ng-model="thingDescription" placeholder="Add description" required>
+          <div class="help-block text-danger" ng-if="addForm.thingDescription.$dirty" ng-messages="addForm.thingDescription.$error">
+            <div ng-message="required">Description is required.</div>
+          </div>
+        </div>
+
         <button class="btn btn-primary" type="submit" ng-disabled="addForm.$invalid">Add</button>
+
       </form>
     </div>
   </div>

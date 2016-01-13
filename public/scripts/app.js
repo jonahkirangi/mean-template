@@ -1,4 +1,4 @@
-angular.module('MeanTemplate', ['ngRoute', 'ngCookies', 'mgcrea.ngStrap', 'ngMessages'])
+angular.module('MeanTemplate', ['ngRoute', 'ngCookies', 'ngResource', 'mgcrea.ngStrap', 'ngMessages'])
   .config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
 
     $routeProvider

@@ -18,7 +18,7 @@ angular.module('MeanTemplate')
           $scope.thingDescription = '';
           $scope.addForm.$setPristine();
           $alert({
-            content: response.data.message,
+            content: response.data,
             placement: 'top-right',
             type: 'danger',
             duration: 3

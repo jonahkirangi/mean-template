@@ -3,7 +3,7 @@ var Thing = require('../app/models/thing');
 
 module.exports = function (app, passport) {
 
-  app.post('/api/things', function(req, res, next) {
+  app.post('/api/things', ensureAuthenticated, function(req, res, next) {
     var thing = new Thing({
       name: req.body.thingName,
       description: req.body.thingDescription
@@ -47,3 +47,10 @@ module.exports = function (app, passport) {
   });
 
 };
+
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated())
+    return next();
+
+  res.status(401).send('Hey, you need to sign in!');
+}

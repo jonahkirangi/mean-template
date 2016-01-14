@@ -2,9 +2,10 @@ var mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
 
 var userSchema = new mongoose.Schema({
+  password: String,
   email: { type: String, unique: true },
   dateJoined: { type: Date, default: Date.now },
-  password: String,
+  admin: { type: Boolean, default: false },
   things: [{
     type: mongoose.Schema.Types.ObjectId, ref: 'Thing'
   }]

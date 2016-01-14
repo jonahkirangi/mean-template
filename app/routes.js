@@ -6,7 +6,8 @@ module.exports = function (app, passport) {
   app.post('/api/things', ensureAuthenticated, function(req, res, next) {
     var thing = new Thing({
       name: req.body.thingName,
-      description: req.body.thingDescription
+      description: req.body.thingDescription,
+      createdBy: req.user._id
     });
     thing.save(function(err) {
       if (err) return next(err);

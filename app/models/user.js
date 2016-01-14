@@ -5,10 +5,7 @@ var userSchema = new mongoose.Schema({
   password: String,
   email: { type: String, unique: true },
   dateJoined: { type: Date, default: Date.now },
-  admin: { type: Boolean, default: false },
-  things: [{
-    type: mongoose.Schema.Types.ObjectId, ref: 'Thing'
-  }]
+  admin: { type: Boolean, default: false }
 });
 
 userSchema.pre('save', function(next) {

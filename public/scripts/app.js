@@ -6,10 +6,6 @@ angular.module('MeanTemplate', ['ngRoute', 'ngCookies', 'ngResource', 'mgcrea.ng
         templateUrl: 'views/home.html',
         controller: 'MainCtrl'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
-      })
       .when('/things/:id', {
         templateUrl: 'views/thing.html',
         controller: 'ThingCtrl'

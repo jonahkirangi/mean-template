@@ -3,6 +3,7 @@ var Thing = require('../app/models/thing');
 
 module.exports = function (app, passport) {
 
+  // ADD A NEW THING
   app.post('/api/things', ensureAuthenticated, function(req, res, next) {
     var thing = new Thing({
       name: req.body.thingName,
@@ -15,11 +16,21 @@ module.exports = function (app, passport) {
     });
   });
 
+  // GET A SPECIFIC THING
+  app.get('/api/things/:id', function(req, res, next) {
+    Thing.findById(req.params.id, function(err, thing) {
+      if (err) return next(err);
+      res.send(thing);
+    });
+  });
+
+  // USER LOGIN
   app.post('/api/login', passport.authenticate('local'), function(req, res) {
     res.cookie('user', JSON.stringify(req.user));
     res.send(req.user);
   });
 
+  // USER SIGN UP
   app.post('/api/signup', function(req, res, next) {
     var user = new User({
       email: req.body.email,
@@ -31,6 +42,7 @@ module.exports = function (app, passport) {
     });
   });
 
+  // USER LOGOUT
   app.get('/api/logout', function(req, res, next) {
     req.logout();
     res.sendStatus(200);

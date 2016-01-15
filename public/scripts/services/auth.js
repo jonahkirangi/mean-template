@@ -9,7 +9,7 @@ angular.module('MeanTemplate')
           return $http.post('/api/login', user)
             .success(function(data) {
               $rootScope.currentUser = data;
-              $location.path('/');
+              $location.path('/home');
 
               $alert({
                 title: 'Cheers!',

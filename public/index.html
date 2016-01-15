@@ -15,11 +15,13 @@
 
     <nav ng-controller="NavbarCtrl" class="navbar navbar-default" role="navigation" bs-navbar>
       <div class="navbar-header">
-        <a class="navbar-brand" href="/">Mean Template</a>
+        <a class="navbar-brand" href="/" ng-if="!currentUser">Mean Template</a>
+        <a class="navbar-brand" href="/home" ng-if="currentUser">Mean Template</a>
       </div>
       <ul class="nav navbar-nav">
-        <li data-match-route="/$"><a href="/">Home</a></li>
-        <li data-match-route="/add"><a href="/add">Add</a></li>
+        <li data-match-route="/$"><a href="/" ng-if="!currentUser">Home</a></li>
+        <li data-match-route="/$"><a href="/home" ng-if="currentUser">Home</a></li>
+        <li data-match-route="/add" ng-if="currentUser"><a href="/add">Add</a></li>
       </ul>
       <ul class="nav navbar-nav pull-right" ng-if="!currentUser">
         <li data-match-route="/login"><a href="/login">Login</a></li>
@@ -43,7 +45,8 @@
     <script src="bower_components/angular-strap/dist/angular-strap.tpl.min.js"></script>
 
     <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/landing.js"></script>
+    <script src="scripts/controllers/home.js"></script>
     <script src="scripts/controllers/navbar.js"></script>
     <script src="scripts/controllers/thing.js"></script>
     <script src="scripts/controllers/add.js"></script>

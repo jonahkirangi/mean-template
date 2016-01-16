@@ -16,8 +16,18 @@ module.exports = function (app, passport) {
     });
   });
 
+  // GET ALL THINGS
+  app.get('/api/things', ensureAuthenticated, function(req, res, next) {
+    var query = Thing.find();
+
+    query.exec(function(err, things) {
+      if (err) return next(err);
+      res.send(things);
+    });
+  });
+
   // GET A SPECIFIC THING
-  app.get('/api/things/:id', function(req, res, next) {
+  app.get('/api/things/:id', ensureAuthenticated, function(req, res, next) {
     Thing.findById(req.params.id, function(err, thing) {
       if (err) return next(err);
       res.send(thing);

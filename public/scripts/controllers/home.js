@@ -1,4 +1,5 @@
 angular.module('MeanTemplate')
-  .controller('HomeCtrl', ['$scope', function($scope) {
+  .controller('HomeCtrl', ['$scope', 'Thing', function($scope, Thing) {
+    $scope.things = Thing.query();
 
   }]);

@@ -3,12 +3,16 @@ angular.module('MeanTemplate', ['ngRoute', 'ngCookies', 'ngResource', 'mgcrea.ng
 
     $routeProvider
       .when('/', {
-        templateUrl: 'views/home.html',
-        controller: 'MainCtrl'
+        templateUrl: 'views/landing.html',
+        controller: 'LandingCtrl'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
+      .when('/home', {
+        templateUrl: 'views/home.html',
+        controller: 'HomeCtrl'
+      })
+      .when('/things/:id', {
+        templateUrl: 'views/thing.html',
+        controller: 'ThingCtrl'
       })
       .when('/login', {
         templateUrl: 'views/login.html',

@@ -2,12 +2,10 @@ var mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
 
 var userSchema = new mongoose.Schema({
+  password: String,
   email: { type: String, unique: true },
   dateJoined: { type: Date, default: Date.now },
-  password: String,
-  things: [{
-    type: mongoose.Schema.Types.ObjectId, ref: 'Thing'
-  }]
+  admin: { type: Boolean, default: false }
 });
 
 userSchema.pre('save', function(next) {

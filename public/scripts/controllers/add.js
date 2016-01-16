@@ -1,11 +1,9 @@
 angular.module('MeanTemplate')
-  .controller('AddCtrl', ['$scope', '$alert', 'Thing', function($scope, $alert, Thing) {
+  .controller('AddCtrl', ['$scope', '$alert', '$location', 'Thing', function($scope, $alert, $location, Thing) {
     $scope.addThing = function() {
       Thing.save({ thingName: $scope.thingName, thingDescription: $scope.thingDescription },
         function() {
-          $scope.thingName = '';
-          $scope.thingDescription = '';
-          $scope.addForm.$setPristine();
+          $location.path('/home');
           $alert({
             content: 'Thing has been added.',
             placement: 'top-right',
@@ -18,7 +16,7 @@ angular.module('MeanTemplate')
           $scope.thingDescription = '';
           $scope.addForm.$setPristine();
           $alert({
-            content: response.data.message,
+            content: response.data,
             placement: 'top-right',
             type: 'danger',
             duration: 3

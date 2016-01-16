@@ -19,6 +19,7 @@ module.exports = function (app, passport) {
   // GET ALL THINGS
   app.get('/api/things', ensureAuthenticated, function (req, res, next) {
     var query = Thing.find();
+    query.where({ createdBy: req.user._id });
 
     query.exec(function (err, things) {
       if (err) return next(err);

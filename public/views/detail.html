@@ -1,11 +1,10 @@
 <div class="container">
 
   <div class="panel panel-default">
-    <div class="panel-heading">{{heading}}</div>
     <div class="panel-body">
       <div>{{thing.name}}</div>
       <div>{{thing.description}}</div>
-      <div>{{thing.dateCreated}}</div>
+      <div>{{thing.dateCreated | date:'longDate'}}</div>
     </div>
   </div>
 

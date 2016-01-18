@@ -27,6 +27,14 @@ module.exports = function (app, passport) {
     });
   });
 
+  // DELETE A SPECIFIC THING
+  app.delete('/api/things/:id', ensureAuthenticated, function (req, res, next) {
+    Thing.findById(req.params.id, function (err, thing) {
+      if (err) return next(err);
+      thing.remove();
+    })
+  });
+
   // GET A SPECIFIC THING
   app.get('/api/things/:id', ensureAuthenticated, function (req, res, next) {
     Thing.findById(req.params.id, function (err, thing) {

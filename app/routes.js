@@ -32,6 +32,7 @@ module.exports = function (app, passport) {
     Thing.findById(req.params.id, function (err, thing) {
       if (err) return next(err);
       thing.remove();
+      res.sendStatus(200);
     })
   });
 
